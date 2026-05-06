@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Show-Up Rate Maximiser™ — $100K Day Formula™</title>
+<style>
+:root { color-scheme: light; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f1f5f9;color:#0f172a;min-height:100vh;}
+.wrap{max-width:900px;margin:0 auto;padding:32px 20px 60px;}
+
+/* Header */
+.hdr{text-align:center;margin-bottom:32px;}
+.hdr-badge{display:inline-block;padding:4px 16px;background:#fef3c7;border:1px solid #fcd34d;border-radius:20px;font-size:11px;font-weight:700;color:#92400e;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;}
+.hdr h1{font-size:30px;font-weight:800;color:#0f172a;margin-bottom:10px;letter-spacing:-0.5px;line-height:1.2;}
+.hdr p{font-size:15px;color:#475569;max-width:600px;margin:0 auto;line-height:1.8;}
+
+/* Cards */
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:20px 22px;box-shadow:0 1px 3px rgba(0,0,0,.05);margin-bottom:14px;}
+.card-alt{background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:20px 22px;margin-bottom:14px;}
+
+/* Section label */
+.slabel{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#b45309;display:flex;align-items:center;gap:8px;margin-bottom:14px;}
+.slabel::before,.slabel::after{content:'';flex:1;height:1px;background:#e2e8f0;}
+
+/* Benchmarks */
+.bench-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.bench-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.04);}
+.bench-phase{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.bench-ticket{font-size:12px;color:#475569;margin-bottom:10px;}
+.bench-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:11px;}
+.bench-row:last-child{border-bottom:none;font-weight:700;}
+.bench-label{color:#64748b;}
+.bench-val{font-weight:600;}
+
+/* Phase tabs */
+.tabs{display:flex;gap:10px;margin-bottom:18px;}
+.tab{flex:1;padding:13px 8px;border-radius:10px;border:2px solid #e2e8f0;background:#fff;cursor:pointer;font-family:inherit;font-weight:700;text-align:center;transition:all .2s;color:#94a3b8;line-height:1.5;}
+.tab-icon{font-size:18px;margin-bottom:3px;}
+.tab-name{font-size:13px;}
+.tab-ticket{font-size:11px;font-weight:400;opacity:.75;margin-top:1px;}
+.tab.a1{border-color:#8b5cf6;background:#f5f3ff;color:#6d28d9;}
+.tab.a2{border-color:#3b82f6;background:#eff6ff;color:#1d4ed8;}
+.tab.a3{border-color:#f59e0b;background:#fffbeb;color:#92400e;}
+.tab.a4{border-color:#22c55e;background:#f0fdf4;color:#15803d;}
+
+/* Phase banner */
+.phase-banner{border-radius:12px;padding:16px 20px;margin-bottom:18px;font-size:14px;line-height:1.7;color:#475569;}
+.pb1{background:#f5f3ff;border:1px solid #c4b5fd;}
+.pb2{background:#eff6ff;border:1px solid #93c5fd;}
+.pb3{background:#fffbeb;border:1px solid #fcd34d;}
+.pb4{background:#f0fdf4;border:1px solid #86efac;}
+.pb-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+
+/* Section headers */
+.sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #f1f5f9;}
+.sec-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.sec-title{font-size:16px;font-weight:700;color:#0f172a;}
+.sec-sub{font-size:12px;color:#64748b;margin-top:2px;}
+
+/* Copy block */
+.copy-block{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:14px;}
+.copy-block-header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#f1f5f9;border-bottom:1px solid #e2e8f0;}
+.copy-block-title{font-size:12px;font-weight:700;color:#374151;}
+.copy-btn{display:flex;align-items:center;gap:5px;padding:5px 12px;border-radius:6px;border:1px solid #e2e8f0;background:#fff;color:#475569;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;}
+.copy-btn:hover{background:#f8fafc;border-color:#94a3b8;}
+.copy-btn.copied{background:#dcfce7;border-color:#86efac;color:#15803d;}
+.copy-content{padding:14px 16px;font-size:13px;color:#374151;line-height:1.75;white-space:pre-wrap;font-family:inherit;}
+
+/* Email accordion */
+.email-list{display:flex;flex-direction:column;gap:10px;}
+.email-item{background:#fff;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;}
+.email-toggle{width:100%;display:flex;align-items:center;gap:12px;padding:13px 16px;background:#fff;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .15s;}
+.email-toggle:hover{background:#f8fafc;}
+.email-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+.email-meta{flex:1;}
+.email-label{font-size:13px;font-weight:700;color:#0f172a;}
+.email-timing{font-size:11px;color:#64748b;margin-top:1px;}
+.email-chevron{font-size:12px;color:#94a3b8;transition:transform .2s;flex-shrink:0;}
+.email-toggle.open .email-chevron{transform:rotate(180deg);}
+.email-body{display:none;border-top:1px solid #f1f5f9;}
+.email-body.open{display:block;}
+.email-subjects{padding:12px 16px;background:#f8fafc;border-bottom:1px solid #f1f5f9;}
+.email-subjects-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#94a3b8;margin-bottom:8px;}
+.subject-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;background:#fff;border:1px solid #e2e8f0;border-radius:7px;margin-bottom:6px;}
+.subject-text{font-size:12px;color:#374151;font-weight:500;flex:1;}
+.subject-copy{padding:3px 10px;border-radius:5px;border:1px solid #e2e8f0;background:#f8fafc;color:#475569;font-size:10px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .15s;}
+.subject-copy:hover{border-color:#94a3b8;}
+.subject-copy.copied{background:#dcfce7;border-color:#86efac;color:#15803d;}
+.email-copy-full{padding:10px 16px;background:#f8fafc;border-top:1px solid #f1f5f9;display:flex;justify-content:flex-end;}
+
+/* SMS scripts */
+.sms-grid{display:flex;flex-direction:column;gap:10px;}
+.sms-item{background:#fff;border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;}
+.sms-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#f1f5f9;border-bottom:1px solid #e2e8f0;}
+.sms-timing{font-size:11px;font-weight:700;color:#374151;}
+.sms-body{padding:12px 14px;font-size:13px;color:#374151;line-height:1.65;}
+
+/* Tip box */
+.tip{border-radius:10px;padding:14px 16px;font-size:13px;color:#475569;line-height:1.7;margin-bottom:16px;}
+.tip-p{background:#f5f3ff;border:1px solid #c4b5fd40;}
+.tip-b{background:#eff6ff;border:1px solid #93c5fd40;}
+.tip-a{background:#fffbeb;border:1px solid #fcd34d40;}
+.tip-g{background:#f0fdf4;border:1px solid #86efac40;}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,#1a1000 0%,#0f172a 100%);border:1px solid rgba(252,211,77,.3);border-radius:16px;padding:40px;text-align:center;margin-top:24px;}
+.cta-eye{font-size:11px;font-weight:700;color:#f59e0b;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;}
+.cta h2{font-size:24px;font-weight:800;color:#fff;line-height:1.3;max-width:520px;margin:0 auto 12px;}
+.cta-body{font-size:14px;color:#94a3b8;line-height:1.8;max-width:500px;margin:0 auto 20px;}
+.cta-btn{display:inline-block;background:#f59e0b;color:#000;padding:14px 36px;border-radius:10px;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:.3px;}
+.cta-guar{font-size:12px;color:#475569;margin-top:14px;line-height:1.6;}
+.footer{text-align:center;margin-top:28px;font-size:11px;color:#94a3b8;}
+.hidden{display:none!important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-badge">$100K Day Formula™ — Cash Flow Engine™</div>
+  <h1>The Show-Up Rate Maximiser™</h1>
+  <p>Every piece of copy you need to fill your room — bribe scripts, confirmation emails, and day-of reminders — for every phase of your $100K Day journey. Click any block to copy it.</p>
+</div>
+
+<!-- BENCHMARKS -->
+<div class="card" style="margin-bottom:24px;">
+  <div class="slabel">Show Rate Benchmarks — What Good Looks Like</div>
+  <div class="bench-grid" id="bench-grid"></div>
+  <p style="font-size:12px;color:#94a3b8;text-align:center;margin-top:4px;">A well-executed bribe sequence lifts show rates by 15–25 percentage points. Every extra attendee has downstream revenue value.</p>
+</div>
+
+<!-- PHASE TABS -->
+<div class="card" style="margin-bottom:18px;">
+  <div class="slabel">Select Your Phase</div>
+  <div class="tabs">
+    <button class="tab" id="tab1" onclick="setPhase(1)"><div class="tab-icon">🎯</div><div class="tab-name">Phase 1</div><div class="tab-ticket">Free Event</div></button>
+    <button class="tab" id="tab2" onclick="setPhase(2)"><div class="tab-icon">⚡</div><div class="tab-name">Phase 2</div><div class="tab-ticket">$1 Ticket</div></button>
+    <button class="tab" id="tab3" onclick="setPhase(3)"><div class="tab-icon">🚀</div><div class="tab-name">Phase 3</div><div class="tab-ticket">$27 Ticket</div></button>
+    <button class="tab" id="tab4" onclick="setPhase(4)"><div class="tab-icon">💎</div><div class="tab-name">Phase 4</div><div class="tab-ticket">$97 Ticket</div></button>
+  </div>
+</div>
+
+<!-- DYNAMIC CONTENT -->
+<div id="phase-content"></div>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-eye">Ready to build your full $100K Day system?</div>
+  <h2>Get Your Complete $100K Day Action Plan in 90 Minutes</h2>
+  <p class="cta-body">Book a <strong style="color:#fbbf24;">Red Diamond Offer X-Ray</strong> — a private 90-minute session where we engineer your offer, map your event funnel, and hand you a complete action plan for your first $100K Day.</p>
+  <a href="https://coachlaunch.com/mapping-a" class="cta-btn" target="_blank">Book My Red Diamond Offer X-Ray — $299 →</a>
+  <div class="cta-guar">🔒 Zero Risk — Full refund if you don't walk away with a genuine breakthrough. No questions asked.</div>
+</div>
+
+<div class="footer">Show-Up Rate Maximiser™ — $100K Day Formula™ · CoachLaunch.com</div>
+</div>
+
+<script>
+// ─── DATA ─────────────────────────────────────────────────────────────────────
+
+const BENCHMARKS = [
+  { phase:"Phase 1", ticket:"Free Event", color:"#6d28d9", bg:"#f5f3ff",
+    rows:[["No bribe","30–40%","#dc2626"],["With bribe","50–65%","#15803d"],["Target","55%+","#6d28d9"]] },
+  { phase:"Phase 2", ticket:"$1 Ticket", color:"#1d4ed8", bg:"#eff6ff",
+    rows:[["No sequence","40–50%","#dc2626"],["Full sequence","55–70%","#15803d"],["Target","60%+","#1d4ed8"]] },
+  { phase:"Phase 3", ticket:"$27 Ticket", color:"#92400e", bg:"#fffbeb",
+    rows:[["No sequence","45–55%","#dc2626"],["Full sequence","60–75%","#15803d"],["Target","65%+","#92400e"]] },
+  { phase:"Phase 4", ticket:"$97 Ticket", color:"#15803d", bg:"#f0fdf4",
+    rows:[["No sequence","55–65%","#dc2626"],["Full sequence","70–85%","#15803d"],["Target","75%+","#15803d"]] },
+];
+
+const PHASES = {
+  1: {
+    bannerClass:"pb1", titleColor:"#6d28d9", tabClass:"a1",
+    tipClass:"tip-p", numBg:"#ede9fe", numColor:"#6d28d9",
+    secIconBg:"#f5f3ff",
+    title:"Phase 1 — Launch (Free Event)",
+    banner:"Phase 1 is about <strong>getting bodies in the room</strong>. Every person who shows up is a potential survey response, a testimonial, and a Phase 2 buyer. The bribe on your thank-you page is the single highest-leverage tool you have — it can lift show rates by 20+ percentage points at zero cost.",
+    tip:"<strong style='color:#6d28d9'>Phase 1 tip:</strong> Your bribe doesn't need to be elaborate. A PDF, a bonus training, a private resource — anything your ideal client would find genuinely valuable. The promise of it is enough to drive attendance.",
+    bribe:`Wait — Before You Go. Your Free Bonus Is Waiting.
+
+You're registered for [EVENT NAME] on [DATE] at [TIME].
+
+But here's the thing — the best stuff happens LIVE.
+
+Show up on the day and I'll hand you:
+
+→ [BONUS NAME] — [one sentence description] ($197 value)
+→ The full event recording (live attendees only)
+→ Live Q&A — I'll answer your biggest question on the spot
+
+[BUTTON: YES — I'll Be There Live →]
+
+P.S. The bonus disappears the moment the event closes. It's my way of rewarding the people who actually show up and do the work.`,
+    emails:[
+      { num:1, label:"Confirmation", timing:"Send immediately on registration",
+        sub1:"✅ You're registered — here's your access + your show-up bonus",
+        sub2:"You're in for [EVENT NAME] — claim your bonus now",
+        body:`[First Name],
+
+You're officially registered for [EVENT NAME].
+
+📅 Date: [DATE]
+⏰ Time: [TIME]
+🔗 Your Access Link: [LINK]
+
+Save that link — it's your door in on the day.
+
+Now here's something important:
+
+Most people register for events like this and then forget to show up.
+
+Not you. Because I'm giving everyone who attends LIVE a free copy of [BONUS NAME] — [one-line description].
+
+This is my way of rewarding the people who show up and do the work. It disappears the moment the event closes.
+
+I'll remind you before we go live.
+
+See you there,
+[YOUR NAME]
+
+P.S. Hit reply and tell me — what's the ONE thing you most want to walk away with from [EVENT NAME]? I read every reply and may address it live.` },
+
+      { num:2, label:"Value Teaser", timing:"Send 2 days before",
+        sub1:"Here's what we're covering at [EVENT NAME]...",
+        sub2:"[First Name], a sneak peek at what's inside",
+        body:`[First Name],
+
+[EVENT NAME] is in [X] days, and I wanted to give you a glimpse of what we're going to cover.
+
+Here's what you'll walk away with:
+
+✅ [Key outcome 1]
+✅ [Key outcome 2]
+✅ [Key outcome 3]
+
+[One line on the transformation — what changes after the event]
+
+This is the kind of session where people walk in with a problem and walk out with a clear path forward.
+
+Come ready to take notes.
+
+And remember — show up live and you'll get [BONUS NAME] at no cost.
+
+See you [DAY],
+[YOUR NAME]` },
+
+      { num:3, label:"Day Before", timing:"Send the day before at 6pm",
+        sub1:"[EVENT NAME] is tomorrow — here's what to expect",
+        sub2:"Tomorrow. You ready?",
+        body:`[First Name],
+
+[EVENT NAME] is tomorrow at [TIME].
+
+A few things before we go live:
+
+1. Your access link: [LINK] — bookmark this now so you're not scrambling tomorrow
+2. Show up 5 minutes early — we start on time
+3. Have a notepad ready — this is a working session, not a webinar
+
+One last reminder: everyone who attends LIVE gets a free copy of [BONUS NAME].
+
+I'll send your link the moment the event closes.
+
+See you tomorrow,
+[YOUR NAME]
+
+P.S. Can't make the live time? Reply and let me know — I may be able to help.` },
+
+      { num:4, label:"Day Of — Morning", timing:"Send the morning of the event at 8am",
+        sub1:"Today's the day [First Name] 🎯",
+        sub2:"[EVENT NAME] is TODAY — your access link inside",
+        body:`[First Name],
+
+Today's the day.
+
+[EVENT NAME] goes live at [TIME].
+
+Here's your access link: [LINK]
+
+Click it at [TIME] and you're in.
+
+Quick reminder of what we're covering today:
+
+→ [Outcome 1]
+→ [Outcome 2]
+→ [Outcome 3]
+
+And don't forget — show up live and I'll send you [BONUS NAME] on the way out.
+
+See you in [X] hours,
+[YOUR NAME]` },
+
+      { num:5, label:"Last Hour", timing:"Send 60 minutes before the event",
+        sub1:"We start in 60 minutes [First Name]",
+        sub2:"Starting SOON — your link is inside 🚀",
+        body:`[First Name],
+
+We're live in 60 minutes.
+
+Your link: [LINK]
+
+Join 5 minutes early to grab a good seat.
+
+This is going to be a good one.
+
+[YOUR NAME]
+
+P.S. Bring your biggest question. I'll answer it live.` },
+    ],
+    sms:[
+      { timing:"Day Before (evening)", copy:"[First Name] — [EVENT NAME] is tomorrow at [TIME]. Your link: [LINK]\n\nShow up live and I'll send you [BONUS NAME] on the way out. See you there 🎯" },
+      { timing:"Day Of — Morning", copy:"Morning [First Name] — today's the day. [EVENT NAME] kicks off at [TIME].\n\nYour link: [LINK] 🚀" },
+      { timing:"1 Hour Before", copy:"[First Name] we go live in 60 min. Join a few minutes early if you can.\n\n[LINK] — see you inside 💎" },
+      { timing:"15 Minutes Before", copy:"Starting in 15 [First Name] — jump in now.\n\n[LINK]" },
+    ]
+  },
+
+  2: {
+    bannerClass:"pb2", titleColor:"#1d4ed8", tabClass:"a2",
+    tipClass:"tip-b", numBg:"#dbeafe", numColor:"#1d4ed8",
+    secIconBg:"#eff6ff",
+    title:"Phase 2 — Execute ($1 Ticket)",
+    banner:"Phase 2 buyers are different. They paid — even $1 — which means they're self-selected. Your sequence here should <strong>honour that commitment</strong>, build anticipation for the beta offer reveal, and make them feel like they made a smart decision the moment they registered.",
+    tip:"<strong style='color:#1d4ed8'>Phase 2 tip:</strong> Don't reveal the $997 beta offer in your pre-event emails. Let the price be a surprise. Build anticipation for 'what they'll discover inside' — the reveal at the event is part of the close.",
+    bribe:`Wait — Here's a Bonus For Showing Up Live.
+
+You've secured your $1 ticket for [EVENT NAME] on [DATE] at [TIME].
+
+Because you're a buyer — not just a registrant — I'm giving you something extra.
+
+Show up live and I'll hand you:
+
+→ [BONUS NAME] — [one sentence description] ($197 value)
+→ Full event recording (live attendees only)
+→ Priority Q&A access — your questions answered first
+
+[BUTTON: YES — I'll Be There Live →]
+
+P.S. The bonus is for live attendees only. It disappears when the event closes.`,
+    emails:[
+      { num:1, label:"Confirmation", timing:"Send immediately on purchase",
+        sub1:"✅ You're in — your $1 ticket is confirmed + your bonus",
+        sub2:"[First Name], your ticket for [EVENT NAME] is confirmed",
+        body:`[First Name],
+
+Your ticket is confirmed.
+
+[EVENT NAME] — [DATE] at [TIME]
+🔗 Your Access Link: [LINK]
+
+You didn't just register — you invested. That tells me you're serious, and serious people get results.
+
+Here's what to expect inside:
+
+→ [Key outcome 1]
+→ [Key outcome 2]
+→ [Key outcome 3]
+
+And because you're a buyer, I'm giving you [BONUS NAME] — [description] — just for showing up live.
+
+It goes away when the event closes. No exceptions.
+
+Save your link. I'll see you there.
+
+[YOUR NAME]
+
+P.S. Inside [EVENT NAME], I'm going to show you something I've never shared publicly before. Come ready to take action.` },
+
+      { num:2, label:"Value Teaser", timing:"Send 2 days before",
+        sub1:"Inside [EVENT NAME] — what you're about to discover...",
+        sub2:"[First Name], here's a preview of what's coming",
+        body:`[First Name],
+
+[EVENT NAME] is in [X] days. Here's a sneak peek at what's inside.
+
+Most coaches trying to hit consistent $10K months are doing this wrong:
+
+[Pain point 1 — describe the broken approach]
+[Pain point 2 — what they're missing]
+[Pain point 3 — what it's costing them]
+
+At [EVENT NAME], I'm going to show you exactly how to fix all three — and I'm going to make you an offer at the end that I think you'll find very interesting.
+
+Come with questions. Come ready to work.
+
+See you [DAY],
+[YOUR NAME]` },
+
+      { num:3, label:"Day Before", timing:"Send the day before at 6pm",
+        sub1:"[EVENT NAME] is tomorrow — are you ready?",
+        sub2:"Tomorrow is the day [First Name]",
+        body:`[First Name],
+
+Tomorrow at [TIME], everything changes.
+
+[EVENT NAME] goes live and I'll be walking you through [core topic] step by step — with nothing held back.
+
+Your access link: [LINK]
+Save it. Bookmark it. Screenshot it.
+
+Arrive 5 minutes early — we start on time and the people who are in the room from the start get the most out of it.
+
+And remember: show up live and you'll get [BONUS NAME] on the way out.
+
+See you tomorrow,
+[YOUR NAME]` },
+
+      { num:4, label:"Day Of — Morning", timing:"Send morning of event at 8am",
+        sub1:"Today is the day [First Name] ⚡",
+        sub2:"[EVENT NAME] is TODAY — your link is inside",
+        body:`[First Name],
+
+Today's the day.
+
+[EVENT NAME] starts at [TIME].
+
+Your link: [LINK]
+
+A few things to bring:
+✓ Notepad and pen — this is a working session
+✓ Your biggest frustration with [topic] — I'll address it live
+✓ An open mind — what I'm going to show you might challenge what you've been taught
+
+I'll make you an offer at the end of today's session. It's going to be the most valuable $997 you've ever spent — or you'll walk away with a free bonus and a clear next step either way.
+
+See you in [X] hours,
+[YOUR NAME]` },
+
+      { num:5, label:"Last Hour", timing:"Send 60 minutes before",
+        sub1:"Starting in 60 minutes [First Name] ⚡",
+        sub2:"We go live SOON — your access link",
+        body:`[First Name],
+
+60 minutes.
+
+Your link: [LINK]
+
+Join early. The people who show up first always get the most out of sessions like this.
+
+See you inside,
+[YOUR NAME]` },
+    ],
+    sms:[
+      { timing:"Day Before (evening)", copy:"[First Name] — your ticket for [EVENT NAME] is for tomorrow at [TIME].\n\nYour link: [LINK]\n\nShow up live and grab [BONUS NAME] on the way out ⚡" },
+      { timing:"Day Of — Morning", copy:"Morning [First Name] — [EVENT NAME] is TODAY at [TIME].\n\nYour link: [LINK]\n\nArrive 5 minutes early 🎯" },
+      { timing:"1 Hour Before", copy:"[First Name] — 60 minutes. I'll see you inside.\n\n[LINK] ⚡" },
+      { timing:"15 Minutes Before", copy:"Starting in 15 [First Name]. Don't miss the opening — that's where the gold is.\n\n[LINK]" },
+    ]
+  },
+
+  3: {
+    bannerClass:"pb3", titleColor:"#92400e", tabClass:"a3",
+    tipClass:"tip-a", numBg:"#fef3c7", numColor:"#92400e",
+    secIconBg:"#fffbeb",
+    title:"Phase 3 — Growth ($27 Ticket)",
+    banner:"At $27, your audience is self-selecting hard. They've paid real money, which means they have real intent. Your sequence should <strong>build excitement for a longer event</strong>, tease the strategy session offer, and make them feel like they're about to get far more than $27 worth of value.",
+    tip:"<strong style='color:#92400e'>Phase 3 tip:</strong> Mention the session length in your pre-event copy. '3+ hours of live training' creates anticipation and justifies the ticket price. It also primes them for the paid strategy session CTA at the end.",
+    bribe:`You've Secured Your Spot. Here's What You Get For Showing Up Live.
+
+Your $27 ticket for [EVENT NAME] is confirmed. [DATE] at [TIME].
+
+This is a 3+ hour live masterclass — and here's what showing up in person gets you:
+
+→ [BONUS NAME] — [description] ($197 value)
+→ Full HD recording — live attendees only
+→ Live Q&A — 30 minutes at the end, your questions answered directly
+
+[BUTTON: I'll Be There. Claim My Bonus →]
+
+P.S. The $27 you just invested is the smallest part of what this could be worth to you. Show up and I'll show you exactly what I mean.`,
+    emails:[
+      { num:1, label:"Confirmation", timing:"Send immediately on purchase",
+        sub1:"✅ Your $27 ticket is confirmed — here's what's inside",
+        sub2:"[First Name], you're in for [EVENT NAME] 🚀",
+        body:`[First Name],
+
+Your ticket is confirmed.
+
+[EVENT NAME] — [DATE] at [TIME]
+📍 Format: 3+ hours of live, step-by-step training
+🔗 Your Access Link: [LINK]
+
+You just made a decision that puts you in a different category to the coaches still running free webinars that don't convert.
+
+Here's what we're covering in [EVENT NAME]:
+
+✅ [Key outcome 1]
+✅ [Key outcome 2]
+✅ [Key outcome 3]
+
+And as a thank-you for showing up live, I'm giving every live attendee a copy of [BONUS NAME] — [description].
+
+This is for show-ups only. It disappears when we close.
+
+Save your link. Come ready to work.
+
+[YOUR NAME]
+
+P.S. At the end of [EVENT NAME], I'm going to offer a small group of attendees the chance to work directly with me. It won't be free. But it will be worth far more than it costs.` },
+
+      { num:2, label:"Value Teaser", timing:"Send 2 days before",
+        sub1:"What's inside [EVENT NAME] — and why it's different",
+        sub2:"[First Name], here's what 3 hours is going to do for you",
+        body:`[First Name],
+
+[EVENT NAME] is [X] days away. Here's why this is different from every other masterclass you've attended.
+
+Most 60-minute webinars give you the 'what' and skip the 'how'. You walk away inspired but no closer to revenue.
+
+[EVENT NAME] is 3+ hours for a reason.
+
+We go deep. We go step by step. We don't stop until you have a complete picture — and a strategy session offer at the end for the people who want to go further faster.
+
+Here's what you'll have by the time we finish:
+
+→ [Specific outcome 1]
+→ [Specific outcome 2]
+→ [Specific outcome 3]
+
+Come with your biggest challenge. We'll address it on the day.
+
+[YOUR NAME]` },
+
+      { num:3, label:"Day Before", timing:"Send the day before at 6pm",
+        sub1:"[EVENT NAME] is tomorrow — 3+ hours that could change everything",
+        sub2:"Tomorrow [First Name]. Clear your schedule.",
+        body:`[First Name],
+
+[EVENT NAME] is tomorrow at [TIME].
+
+Block the time. Turn off your phone. Treat this like the most important meeting on your calendar — because it might be.
+
+What you need:
+✓ Your access link: [LINK]
+✓ A notepad — we go fast and there's a lot to capture
+✓ 3 hours of uninterrupted time
+
+And remember — show up live and you'll get [BONUS NAME] on the way out.
+
+At the end of tomorrow's session, I'm going to offer a handful of attendees the chance to work directly with me in a paid strategy session. If that sounds interesting, show up early and pay close attention.
+
+See you tomorrow,
+[YOUR NAME]` },
+
+      { num:4, label:"Day Of — Morning", timing:"Send morning of event at 8am",
+        sub1:"Today is the day [First Name] 🚀",
+        sub2:"[EVENT NAME] starts TODAY — 3+ hours of the real stuff",
+        body:`[First Name],
+
+Today's the day.
+
+[EVENT NAME] goes live at [TIME] and we're going for 3+ hours — step by step, no fluff.
+
+Your link: [LINK]
+
+Here's what I want you to do before we start:
+→ Find a quiet space
+→ Have a notepad ready
+→ Write down your #1 revenue challenge right now — I may address it live
+
+At the end of today, I'm making an offer to a small group of attendees. It's a paid strategy session — and if we both agree it's the right fit, it leads to working together directly.
+
+Not everyone will qualify. But if you show up, pay attention, and do the work today — you'll know if it's for you.
+
+See you in [X] hours,
+[YOUR NAME]` },
+
+      { num:5, label:"Last Hour", timing:"Send 60 minutes before",
+        sub1:"Starting in 60 minutes [First Name] 🚀",
+        sub2:"We go live SOON — your link is inside",
+        body:`[First Name],
+
+One hour.
+
+Your link: [LINK]
+
+Join early if you can — the best seats are at the front.
+
+This is going to be 3 hours well spent.
+
+[YOUR NAME]
+
+P.S. Stay till the end. What I'm offering after the training is something I've never made available publicly before.` },
+    ],
+    sms:[
+      { timing:"Day Before (evening)", copy:"[First Name] — [EVENT NAME] is tomorrow at [TIME]. 3+ hours of the real stuff.\n\nYour link: [LINK]\n\nShow up live and grab [BONUS NAME] 🚀" },
+      { timing:"Day Of — Morning", copy:"Morning [First Name] — today is [EVENT NAME]. Starts at [TIME].\n\nBlock the time. Your link: [LINK]" },
+      { timing:"1 Hour Before", copy:"[First Name] — 60 minutes. Clear your desk, grab a notepad, join early.\n\n[LINK] 🚀" },
+      { timing:"15 Minutes Before", copy:"Starting in 15 [First Name]. Get in early — the opening sets up everything that follows.\n\n[LINK]" },
+    ]
+  },
+
+  4: {
+    bannerClass:"pb4", titleColor:"#15803d", tabClass:"a4",
+    tipClass:"tip-g", numBg:"#dcfce7", numColor:"#15803d",
+    secIconBg:"#f0fdf4",
+    title:"Phase 4 — Mastery ($97 Ticket)",
+    banner:"At $97, your buyers are <strong>serious operators</strong>. The sequence here should feel premium, exclusive, and high-stakes. You're building to a Deposit Close — $997 now, balance before delivery. Every email should increase their certainty that showing up live is the only logical move.",
+    tip:"<strong style='color:#15803d'>Phase 4 tip:</strong> Mention the multi-day format in your pre-event copy. 'Day 1 of 3' creates urgency around showing up to every session. Each day builds on the last — missing one means missing the full picture.",
+    bribe:`Your $97 Ticket Is Confirmed. Here's What Live Attendance Unlocks.
+
+You're in for [EVENT NAME] — [DATE] at [TIME].
+
+This is a [X]-day virtual event, and showing up live to every session is how you get the full transformation.
+
+As a VIP live attendee, you'll receive:
+
+→ [BONUS NAME] — [description] ($297 value)
+→ Full recordings of all [X] days — live attendees only
+→ Private Q&A at the end of each day
+→ Priority access to the Deposit Close offer (live attendees get first access)
+
+[BUTTON: I'm Showing Up. Claim My Live Bonus →]
+
+P.S. The Deposit Close offer at the end of Day [X] is only open to live attendees. It won't be offered publicly after the event closes.`,
+    emails:[
+      { num:1, label:"Confirmation", timing:"Send immediately on purchase",
+        sub1:"✅ Your ticket is confirmed — here's everything you need to know",
+        sub2:"[First Name], you're confirmed for [EVENT NAME] 💎",
+        body:`[First Name],
+
+You're in.
+
+[EVENT NAME]
+📅 Day 1: [DATE] at [TIME]
+📅 Day 2: [DATE] at [TIME]
+📅 Day 3: [DATE] at [TIME]
+🔗 Your Access Link (same link all days): [LINK]
+
+By committing $97, you've put yourself in a very different category. The coaches in this room are serious. The conversations are going to reflect that.
+
+Here's what you'll have by the end of Day [X]:
+
+✅ [Major outcome 1]
+✅ [Major outcome 2]
+✅ [Major outcome 3]
+
+Live attendance matters. The people who show up to every session leave with a fundamentally different business to the people who watch the recordings.
+
+I'll also be making a very specific offer on Day [X] — available to live attendees only. Stay close.
+
+See you Day 1,
+[YOUR NAME]
+
+P.S. Add all three dates to your calendar now. Each day builds on the one before.` },
+
+      { num:2, label:"Value Teaser", timing:"Send 2 days before Day 1",
+        sub1:"What [X] days is going to do for your business — [EVENT NAME]",
+        sub2:"[First Name], here's what's coming inside [EVENT NAME]",
+        body:`[First Name],
+
+[EVENT NAME] starts in [X] days.
+
+Here's how the three days break down:
+
+Day 1: [Theme — e.g. "The Offer"] — [one sentence on what they'll have]
+Day 2: [Theme — e.g. "The Money Engine"] — [one sentence on what they'll have]
+Day 3: [Theme — e.g. "The Scale"] — [one sentence, plus mention the Deposit Close]
+
+Each day is [X] hours of live, step-by-step training. Each session builds on the one before — which is why showing up live to all three matters.
+
+By Day 3, you'll have everything you need to run a $100K Day.
+
+Block the time. This is worth it.
+
+[YOUR NAME]` },
+
+      { num:3, label:"Day Before Day 1", timing:"Send the evening before Day 1 at 6pm",
+        sub1:"[EVENT NAME] starts tomorrow — Day 1 of [X] 💎",
+        sub2:"Tomorrow is Day 1 [First Name]. Here's how to prepare.",
+        body:`[First Name],
+
+Day 1 of [EVENT NAME] is tomorrow at [TIME].
+
+Here's how to get the most out of [X] days:
+
+✓ Your link: [LINK] — the same link works for all [X] days
+✓ Block every session in your calendar — don't let anything displace this
+✓ Have a dedicated notebook — you're going to fill it
+✓ Show up 10 minutes early on Day 1 — I always open with something valuable before we officially start
+
+One more thing: on Day [X], I'm making a Deposit Close offer to live attendees only. It won't be available after the event closes and it won't be offered publicly.
+
+If you've ever wanted to work with me directly, Day [X] is the moment.
+
+See you tomorrow,
+[YOUR NAME]` },
+
+      { num:4, label:"Day Of — Morning (Each Day)", timing:"Send the morning of each event day at 7:30am",
+        sub1:"Day [X] starts today [First Name] — here's your link 💎",
+        sub2:"[EVENT NAME] Day [X] is TODAY — [TIME] start",
+        body:`[First Name],
+
+Day [X] of [EVENT NAME] starts at [TIME].
+
+Your link: [LINK]
+
+Today we're covering: [Day X theme — 2 sentences on what they'll walk away with]
+
+[If Day 1 or 2]: Build on what we covered [yesterday/on Day 1] by making sure you have your notes ready.
+
+[If final day]: Today is the day it all comes together. I'll be making a very specific offer at the end of today's session — available to live attendees only. Stay till the end.
+
+See you in [X] hours,
+[YOUR NAME]` },
+
+      { num:5, label:"Last Hour (Each Day)", timing:"Send 60 minutes before each session",
+        sub1:"Day [X] starts in 60 minutes [First Name] 💎",
+        sub2:"[EVENT NAME] Day [X] — starting SOON",
+        body:`[First Name],
+
+Day [X] starts in 60 minutes.
+
+Your link: [LINK]
+
+Join early if you can. I sometimes open with something valuable before the official start time.
+
+[If final day]: And remember — the offer at the end of today is for live attendees only. Stay till the close.
+
+[YOUR NAME]` },
+    ],
+    sms:[
+      { timing:"Night Before Day 1", copy:"[First Name] — Day 1 of [EVENT NAME] is tomorrow at [TIME]. Same link all [X] days: [LINK]\n\nBlock the time. This is the one. 💎" },
+      { timing:"Morning of Each Day", copy:"Morning [First Name] — Day [X] of [EVENT NAME] starts at [TIME].\n\nYour link: [LINK]\n\nArrive early 🎯" },
+      { timing:"1 Hour Before Each Day", copy:"[First Name] — 60 minutes until Day [X].\n\n[LINK]\n\n[If final day: Stay till the end — I'm making an offer that's not going anywhere after this.]" },
+      { timing:"15 Minutes Before", copy:"Day [X] starting in 15 [First Name]. Get in early.\n\n[LINK] 💎" },
+    ]
+  }
+};
+
+// ─── RENDER BENCHMARKS ────────────────────────────────────────────────────────
+function renderBenchmarks() {
+  const grid = document.getElementById('bench-grid');
+  grid.innerHTML = BENCHMARKS.map(b => `
+    <div class="bench-card" style="border-top:3px solid ${b.color};">
+      <div class="bench-phase" style="color:${b.color}">${b.phase}</div>
+      <div class="bench-ticket">${b.ticket}</div>
+      ${b.rows.map(r => `
+        <div class="bench-row">
+          <span class="bench-label">${r[0]}</span>
+          <span class="bench-val" style="color:${r[2]}">${r[1]}</span>
+        </div>`).join('')}
+    </div>`).join('');
+}
+
+// ─── COPY TO CLIPBOARD ────────────────────────────────────────────────────────
+function copyText(text, btn) {
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch(e) {}
+  document.body.removeChild(ta);
+  const orig = btn.innerHTML;
+  btn.innerHTML = '✓ Copied!'; btn.className = btn.className + ' copied';
+  setTimeout(() => { btn.innerHTML = orig; btn.className = btn.className.replace(' copied',''); }, 2000);
+}
+
+// ─── TOGGLE EMAIL ─────────────────────────────────────────────────────────────
+function toggleEmail(id) {
+  const body = document.getElementById('email-body-'+id);
+  const toggle = document.getElementById('email-toggle-'+id);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  toggle.classList.toggle('open', !isOpen);
+}
+
+// ─── RENDER PHASE ─────────────────────────────────────────────────────────────
+function setPhase(p) {
+  [1,2,3,4].forEach(n => {
+    document.getElementById('tab'+n).className = 'tab' + (n===p ? ' a'+p : '');
+  });
+  const ph = PHASES[p];
+  const content = document.getElementById('phase-content');
+
+  const emailsHtml = ph.emails.map((e,i) => {
+    const id = `p${p}e${i}`;
+    return `
+    <div class="email-item">
+      <button class="email-toggle" id="email-toggle-${id}" onclick="toggleEmail('${id}')">
+        <div class="email-num" style="background:${ph.numBg};color:${ph.numColor};">${e.num}</div>
+        <div class="email-meta">
+          <div class="email-label">Email ${e.num}: ${e.label}</div>
+          <div class="email-timing">${e.timing}</div>
+        </div>
+        <span class="email-chevron">▼</span>
+      </button>
+      <div class="email-body" id="email-body-${id}">
+        <div class="email-subjects">
+          <div class="email-subjects-label">Subject Lines (A/B test both)</div>
+          <div class="subject-row">
+            <span class="subject-text">${e.sub1}</span>
+            <button class="subject-copy" onclick="copyText('${e.sub1.replace(/'/g,"\\'")}', this)">Copy</button>
+          </div>
+          <div class="subject-row">
+            <span class="subject-text">${e.sub2}</span>
+            <button class="subject-copy" onclick="copyText('${e.sub2.replace(/'/g,"\\'")}', this)">Copy</button>
+          </div>
+        </div>
+        <div class="copy-content">${e.body}</div>
+        <div class="email-copy-full">
+          <button class="copy-btn" onclick="copyText(document.getElementById('email-body-${id}').querySelector('.copy-content').innerText, this)">📋 Copy Full Email</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const smsHtml = ph.sms.map((s,i) => `
+    <div class="sms-item">
+      <div class="sms-header">
+        <span class="sms-timing">${s.timing}</span>
+        <button class="copy-btn" onclick="copyText(\`${s.copy.replace(/`/g,'\\`')}\`, this)">📋 Copy</button>
+      </div>
+      <div class="sms-body">${s.copy.replace(/\n/g,'<br>')}</div>
+    </div>`).join('');
+
+  content.innerHTML = `
+    <div class="phase-banner ${ph.bannerClass}" style="margin-bottom:18px;">
+      <div class="pb-title" style="color:${ph.titleColor};">${ph.title}</div>
+      ${ph.banner}
+    </div>
+
+    <!-- BRIBE SCRIPT -->
+    <div class="card">
+      <div class="sec-hdr">
+        <div class="sec-icon" style="background:${ph.secIconBg};">🎁</div>
+        <div>
+          <div class="sec-title">Thank-You Page Bribe Script</div>
+          <div class="sec-sub">Copy this to your event thank-you page immediately after registration</div>
+        </div>
+      </div>
+      <div class="${ph.tipClass} tip">${ph.tip}</div>
+      <div class="copy-block">
+        <div class="copy-block-header">
+          <span class="copy-block-title">Bribe Script</span>
+          <button class="copy-btn" onclick="copyText(this.closest('.copy-block').querySelector('.copy-content').innerText, this)">📋 Copy Script</button>
+        </div>
+        <div class="copy-content">${ph.bribe}</div>
+      </div>
+    </div>
+
+    <!-- EMAIL SEQUENCE -->
+    <div class="card">
+      <div class="sec-hdr">
+        <div class="sec-icon" style="background:${ph.secIconBg};">✉️</div>
+        <div>
+          <div class="sec-title">Confirmation Email Sequence</div>
+          <div class="sec-sub">5 emails — click each to expand and copy</div>
+        </div>
+      </div>
+      <div class="email-list">${emailsHtml}</div>
+    </div>
+
+    <!-- SMS / DM SCRIPTS -->
+    <div class="card">
+      <div class="sec-hdr">
+        <div class="sec-icon" style="background:${ph.secIconBg};">💬</div>
+        <div>
+          <div class="sec-title">SMS / DM Scripts</div>
+          <div class="sec-sub">Short, punchy reminders for text or direct message</div>
+        </div>
+      </div>
+      <div class="sms-grid">${smsHtml}</div>
+    </div>`;
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+renderBenchmarks();
+setPhase(1);
+</script>
+</body>
+</html>
